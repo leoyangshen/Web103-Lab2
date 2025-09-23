@@ -1,0 +1,21 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node_modules/.bin/dotenv -e ./.env -- nodemon server.js",
+    "reset": "node_modules/.bin/dotenv -e ./.env -- node config/reset.js",
+    "reset-local": "node_modules/.bin/dotenv -e ./.env.local -- node config/reset.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "dotenv": "^17.2.2",
+    "dotenv-cli": "^10.0.0",
+    "express": "^5.1.0",
+    "nodemon": "^3.1.10"
+  }
+}

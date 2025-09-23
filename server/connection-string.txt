@@ -1,0 +1,1 @@
+postgresql://unearthed_mnus_user:0ofgnMG9pWZyTDOIiOOSBiavZ7peQoPj@dpg-d38g10er433s73fguog0-a.virginia-postgres.render.com/unearthed_mnus

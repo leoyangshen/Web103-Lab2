@@ -1,0 +1,19 @@
+import pg from 'pg';
+const config = {
+	    user: process.env.PGUSER,
+	    password: process.env.PGPASSWORD,
+	    host: process.env.PGHOST,
+	    port: process.env.PGPORT,
+	    database: process.env.PGDATABASE,
+//	    ssl: {
+//	       rejectUnauthorized: false
+//	    }
+};
+if (process.env.NODE_ENV === "production") {
+    config.ssl = {
+        rejectUnauthorized: false
+    };
+} else {
+    config.ssl = false; // Disable SSL for local development
+}
+export const pool = new pg.Pool(config);
