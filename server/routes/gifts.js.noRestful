@@ -19,9 +19,4 @@ giftsRouter.get('/', giftsController.getGifts);
 // });
 
 giftsRouter.get('/:giftId', giftsController.getGiftById)	
-
-giftsRouter.post('/', giftsController.createGift)
-giftsRouter.delete('/:id', giftsController.deleteGift)
-giftsRouter.patch('/:id', giftsController.updateGift)
-
 export default giftsRouter;

@@ -1,0 +1,153 @@
+import { useParams, Link, useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+// NOTE: For use in a multi-file project, you would need to ensure 
+// a main component (like App.jsx) imports and uses the Tailwind CDN link.
+
+const GiftDetails = () => {
+    // The component is designed to run in your environment where the router context is available.
+    const { id } = useParams();
+    const navigate = useNavigate();
+    const [gift, setGift] = useState(null);
+    const [loading, setLoading] = useState(true);
+    const [showDeleteModal, setShowDeleteModal] = useState(false); 
+
+    // --- Data Fetching Logic (using relative path for Vite proxy) ---
+    useEffect(() => {
+        const fetchGift = async () => {
+            try {
+                // Using the relative path /gifts/:id, which Vite proxies to http://localhost:3001/gifts/:id
+                const response = await fetch(`/gifts/${id}`); 
+                if (!response.ok) throw new Error('Gift not found');
+                const data = await response.json();
+                setGift(data);
+            } catch (error) {
+                console.error("Error fetching gift details:", error);
+                setGift(null);
+            } finally {
+                setLoading(false);
+            }
+        };
+        fetchGift();
+    }, [id]);
+
+    // --- Delete Logic ---
+    const handleDelete = async () => {
+        setShowDeleteModal(false); 
+        try {
+            const options = { method: 'DELETE' };
+            const response = await fetch(`/gifts/${id}`, options);
+            if (response.ok) {
+                navigate('/'); // Navigate home on successful delete
+            } else {
+                console.error("Failed to delete gift. Server response status:", response.status);
+            }
+        } catch (error) {
+            console.error("Network error during gift deletion:", error);
+        }
+    };
+    
+    // --- Custom Delete Modal (Replacing window.confirm) ---
+    const DeleteConfirmationModal = ({ giftName, onConfirm, onCancel }) => (
+        <div className="fixed inset-0 bg-black bg-opacity-60 flex justify-center items-center z-50 p-4">
+            <div className="bg-white p-8 rounded-xl shadow-2xl w-full max-w-sm transform transition-all duration-300 scale-100">
+                <h3 className="text-2xl font-bold mb-4 text-red-600 border-b pb-2">Confirm Deletion</h3>
+                <p className="mb-6 text-gray-700">Are you absolutely sure you want to permanently delete: <span className="font-bold text-red-700">{giftName}</span>?</p>
+                <div className="flex justify-end space-x-3">
+                    <button onClick={onCancel} className="px-5 py-2 text-gray-600 border border-gray-300 rounded-lg hover:bg-gray-100 transition">
+                        Cancel
+                    </button>
+                    <button onClick={onConfirm} className="px-5 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition shadow-md">
+                        Delete It
+                    </button>
+                </div>
+            </div>
+        </div>
+    );
+
+    if (loading) {
+        return (
+            <main className="p-6 flex justify-center items-center h-screen bg-gray-100">
+                <div className="text-xl text-gray-600 animate-pulse">Retrieving gift details...</div>
+            </main>
+        );
+    }
+
+    if (!gift) {
+        return (
+            <main className="p-6 text-center min-h-screen bg-gray-100">
+                <h1 className="text-5xl font-extrabold text-red-600 mt-16">404</h1>
+                <p className="text-2xl text-gray-700 mt-2">Gift Not Found</p>
+                <Link to="/" className="inline-block mt-8 bg-blue-600 text-white py-3 px-6 rounded-lg text-lg font-medium hover:bg-blue-700 transition shadow-lg">
+                    ← Go Back to Registry
+                </Link>
+            </main>
+        );
+    }
+
+    // Gift Detail View: Horizontal on desktop, vertical on mobile
+    return (
+        <main className="pt-8 sm:pt-12 min-h-screen bg-gray-100 p-4 sm:p-6 font-['Inter']">
+            {showDeleteModal && (
+                <DeleteConfirmationModal
+                    giftName={gift.name}
+                    onConfirm={handleDelete}
+                    onCancel={() => setShowDeleteModal(false)}
+                />
+            )}
+            
+            {/* Main detail card with responsive horizontal layout */}
+            <div className="max-w-6xl mx-auto bg-white shadow-2xl rounded-xl overflow-hidden">
+                <div className="md:flex">
+                    
+                    {/* Image Section */}
+                    <div className="md:w-1/2 p-6 flex items-center justify-center bg-gray-50 border-r border-gray-100">
+                        <img 
+                            src={gift.image} 
+                            alt={gift.name} 
+                            // Ensures image fits within container without cropping, looks great on all devices
+                            className="w-full h-auto max-h-[500px] object-contain rounded-lg shadow-xl"
+                            onError={(e) => { e.target.onerror = null; e.target.src = "https://placehold.co/600x400/333333/EFEFEF?text=Image+Missing"; }}
+                        />
+                    </div>
+                    
+                    {/* Details and Actions Section */}
+                    <div className="md:w-1/2 p-8 flex flex-col justify-between">
+                        <div>
+                            <h2 className="text-4xl font-extrabold text-gray-900 mb-4 border-b-4 border-green-400 pb-3">{gift.name}</h2>
+                            <p className="text-3xl font-bold text-green-700 mb-6">{gift.pricepoint}</p>
+                            
+                            <h3 className="text-xl font-semibold text-gray-800 mb-2">Description:</h3>
+                            <p className="text-gray-700 mb-8 leading-relaxed">{gift.description}</p>
+                        </div>
+
+                        {/* Metadata Block */}
+                        <div className="space-y-3 pt-6 border-t border-gray-200">
+                            <p className="text-base text-gray-600"><span className="font-bold text-gray-800">For:</span> {gift.audience}</p>
+                            <p className="text-base text-gray-600"><span className="font-bold text-gray-800">Submitted By:</span> {gift.submittedby}</p>
+                            <p className="text-base text-gray-600"><span className="font-bold text-gray-800">Submitted On:</span> {new Date(gift.submittedon).toLocaleDateString()}</p>
+                        </div>
+
+                        {/* Action Buttons */}
+                        <div className="mt-8 flex space-x-4">
+                            <Link 
+                                to={`/edit/${gift.id}`} 
+                                className="flex-1 text-center bg-yellow-500 text-gray-900 py-3 rounded-lg text-lg font-bold hover:bg-yellow-600 transition duration-150 shadow-lg transform hover:scale-[1.02]"
+                            >
+                                Edit Gift
+                            </Link>
+                            <button 
+                                onClick={() => setShowDeleteModal(true)} 
+                                className="flex-1 bg-red-600 text-white py-3 rounded-lg text-lg font-bold hover:bg-red-700 transition duration-150 shadow-lg transform hover:scale-[1.02]"
+                            >
+                                Delete Gift
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    );
+}
+
+export default GiftDetails;
+

@@ -1,0 +1,64 @@
+.CreateGift {
+    margin-left: 200px;
+    margin-right:200px;
+    padding: 20px; /* Added padding for better inner spacing */
+    border: 1px solid #ccc; /* Added light border */
+    border-radius: 10px; /* Added rounded corners */
+    max-width: 800px; /* Limit width */
+    margin: 40px auto; /* Center the form block */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Added subtle shadow */
+}
+
+/* Form structure */
+.CreateGift form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Spacing between form groups */
+}
+
+input, textarea {
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    margin-top: 5px; /* Reduced margin-top for better spacing */
+    width: 100%;
+    border-radius: 8px;
+    border: 1px solid #ccc; /* Lighter border color for input fields */
+    font-size: 14px;
+    padding: 10px; /* Adjusted padding to look better */
+    font-family: 'Inter', sans-serif; /* Use Inter font for consistency */
+}
+
+input {
+    height: 45px;
+}
+
+label {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+    display: block; /* Ensure label is a block element */
+}
+
+textarea {
+    resize: vertical; /* Allow vertical resize */
+    min-height: 120px;
+}
+
+input[type=submit] {
+    width: 100%;
+    height: 50px;
+    cursor: pointer;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    font-size: 20px;
+    font-weight: 600;
+    background-color: #1a1a1a;
+    color:white;
+    transition: background-color 0.25s;
+    margin-top: 25px;
+    margin-bottom: 10px;
+}
+
+input[type=submit]:hover {
+    background-color: #333;
+}
+

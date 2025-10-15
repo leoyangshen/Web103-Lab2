@@ -1,0 +1,207 @@
+/* General Page Layout */
+.gift-detail-page {
+    padding: 30px 15px;
+    min-height: 100vh;
+    background-color: #f7f7f7;
+    padding-top: 80px; /* Adjust for fixed navbar */
+}
+
+.gift-detail-card {
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    display: flex; /* Enables horizontal layout on desktop */
+    flex-direction: column; /* Default stack on mobile */
+    overflow: hidden;
+}
+
+/* Responsive Layout for Desktop (Horizontal Split) */
+@media (min-width: 768px) {
+    .gift-detail-card {
+        flex-direction: row; /* Horizontal on desktop */
+    }
+}
+
+/* Image Section */
+.gift-image-container {
+    padding: 20px;
+    background-color: #fafafa;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-basis: 50%; /* Takes half width on desktop */
+}
+
+.gift-image {
+    width: 100%;
+    max-height: 500px;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* Content Section */
+.gift-content-area {
+    padding: 40px;
+    flex-basis: 50%; /* Takes half width on desktop */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.gift-name {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #1a1a1a;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 3px solid #6ee7b7; /* Green accent */
+}
+
+.gift-price {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #10b981; /* Strong green */
+    margin-bottom: 25px;
+}
+
+.section-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.gift-description {
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+/* Metadata */
+.gift-metadata {
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+    margin-top: 20px;
+    line-height: 1.8;
+}
+
+.metadata-label {
+    font-weight: 700;
+    color: #1a1a1a;
+    display: inline-block;
+    width: 140px; /* Aligns labels neatly */
+}
+
+/* Action Buttons */
+.gift-actions {
+    margin-top: 30px;
+    display: flex;
+    gap: 15px;
+}
+
+.action-btn {
+    flex-grow: 1;
+    padding: 12px 20px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-align: center;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    border: none;
+}
+
+.edit-btn {
+    background-color: #f59e0b; /* Yellow */
+    color: #333;
+}
+
+.edit-btn:hover {
+    background-color: #d97706;
+}
+
+.delete-btn {
+    background-color: #ef4444; /* Red */
+    color: white;
+}
+
+.delete-btn:hover {
+    background-color: #dc2626;
+}
+
+/* --- Custom Modal Styling --- */
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.75);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.modal-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #ef4444;
+    border-bottom: 2px solid #fecaca;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+.modal-message {
+    color: #555;
+    margin-bottom: 25px;
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.modal-cancel-btn, .modal-delete-btn {
+    padding: 8px 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.2s;
+    border: 1px solid transparent;
+}
+
+.modal-cancel-btn {
+    background-color: #f3f4f6;
+    color: #374151;
+    border-color: #d1d5db;
+}
+
+.modal-cancel-btn:hover {
+    background-color: #e5e7eb;
+}
+
+.modal-delete-btn {
+    background-color: #ef4444;
+    color: white;
+}
+
+.modal-delete-btn:hover {
+    background-color: #dc2626;
+}
+

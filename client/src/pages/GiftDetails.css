@@ -1,19 +1,138 @@
-/* Detail Page CSS*/
+/*
+ * Styling for the Gift Details Page (GiftDetails.jsx)
+ * Ensures a responsive, horizontal layout for a cleaner look.
+ */
+
+.GiftDetails {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
 
 .gift-info {
     display: flex;
-    flex-direction: row;
+    flex-direction: column; /* Default stack vertically on mobile */
+    align-items: flex-start;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
 .image-container {
-    padding-left: 100px;
-    width: 40vw;
+    width: 100%;
+    max-height: 400px; /* Constrain image height */
+    overflow: hidden;
+    margin-bottom: 20px;
+    border-radius: 8px;
 }
 
 .image-container img {
-    width: 80%;
+    width: 100%;
+    height: auto;
+    object-fit: cover; /* Ensures image fills container without distortion */
+    border-radius: 8px;
 }
 
 .gift-details {
-    width: 45vw;
+    width: 100%;
 }
+
+.gift-details h2 {
+    font-size: 2em;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.gift-details p {
+    margin-bottom: 8px;
+    line-height: 1.6;
+}
+
+.gift-actions {
+    margin-top: 25px;
+    display: flex;
+    gap: 15px; /* Spacing between buttons */
+}
+
+.action-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1em;
+    cursor: pointer;
+    text-decoration: none; /* For the Link component */
+    text-align: center;
+    transition: background-color 0.2s;
+    font-weight: 600;
+}
+
+.edit-button {
+    background-color: #007bff;
+    color: white;
+}
+
+.edit-button:hover {
+    background-color: #0056b3;
+}
+
+.delete-button {
+    background-color: #dc3545;
+    color: white;
+}
+
+.delete-button:hover {
+    background-color: #c82333;
+}
+
+/* Modal Styling */
+.delete-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.delete-modal {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    max-width: 400px;
+    width: 90%;
+    text-align: center;
+}
+
+.modal-actions button {
+    margin: 5px;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+/* --- Media Query for Desktop Layout --- */
+@media (min-width: 768px) {
+    .gift-info {
+        flex-direction: row; /* Horizontal layout on desktop */
+    }
+
+    .image-container {
+        width: 40%;
+        margin-right: 30px;
+        margin-bottom: 0;
+        max-height: 500px;
+    }
+
+    .gift-details {
+        width: 60%;
+    }
+}
+

@@ -1,0 +1,209 @@
+import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+// Ensure useNavigate is available to redirect after submission
+import { useNavigate } from 'react-router-dom'; 
+
+const EditGift = () => {
+    // 1. Get the 'id' parameter from the URL route /edit/:id
+    const { id } = useParams();
+    const navigate = useNavigate();
+
+    // 2. Initialize state with null/empty values
+    const [gift, setGift] = useState({
+        id: id, // Keep the ID for the PATCH request
+        name: '',
+        pricepoint: '',
+        audience: '',
+        image: '',
+        description: '',
+        submittedby: '',
+        submittedon: ''
+    });
+
+    // --- Embedded CSS for simple styling ---
+    const styleBlock = (
+        <style jsx="true">{`
+            .EditGift {
+                padding: 20px;
+                border: 1px solid #e0e0e0; 
+                border-radius: 12px; 
+                max-width: 800px; 
+                margin: 40px auto; 
+                box-shadow: 0 6px 15px rgba(0,0,0,0.1); 
+                font-family: 'Inter', sans-serif;
+                background-color: #fff;
+            }
+
+            .EditGift h2 {
+                margin-bottom: 25px;
+                color: #333;
+                text-align: center;
+                border-bottom: 2px solid #f0f0f0;
+                padding-bottom: 15px;
+            }
+
+            .EditGift form {
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            input, textarea {
+                box-sizing: border-box;
+                width: 100%;
+                border-radius: 8px;
+                border: 1px solid #ccc; 
+                font-size: 14px;
+                padding: 12px;
+                font-family: inherit;
+            }
+
+            input[type=text] {
+                height: 48px;
+            }
+
+            label {
+                font-size: 1rem; 
+                font-weight: 600;
+                color: #444;
+                display: block; 
+                margin-bottom: 4px;
+            }
+
+            textarea {
+                resize: vertical;
+                min-height: 120px;
+            }
+
+            input[type=submit] {
+                width: 100%;
+                height: 55px;
+                cursor: pointer;
+                border-radius: 8px;
+                border: none;
+                font-size: 1.15rem;
+                font-weight: 700;
+                background-color: #4CAF50; /* Green submit button */
+                color:white;
+                transition: background-color 0.25s;
+                margin-top: 30px;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            }
+            input[type=submit]:hover {
+                background-color: #45a049;
+            }
+            
+            /* Responsive adjustments */
+            @media (max-width: 768px) {
+                .EditGift {
+                    margin: 20px 10px;
+                    padding: 15px;
+                }
+            }
+        `}</style>
+    );
+
+    // 3. useEffect to FETCH the specific gift data when the component loads
+    useEffect(() => {
+        const fetchGift = async () => {
+            try {
+                // Endpoint example: /gifts/10
+                const response = await fetch(`/gifts/${id}`);
+                
+                if (!response.ok) {
+                    throw new Error(`Failed to fetch gift with ID ${id}`);
+                }
+
+                const data = await response.json();
+                
+                // Set the state with the data received from the server
+                setGift(data); 
+
+            } catch (error) {
+                console.error("Error fetching gift for edit:", error);
+                // Optionally redirect or show an error message
+            }
+        };
+
+        fetchGift();
+    }, [id]); // Dependency array: Re-run if ID changes
+
+    // 4. Handle change for form inputs
+    const handleChange = (event) => {
+        const { name, value } = event.target;
+
+        setGift( (prev) => {
+            return {
+                ...prev,
+                [name]: value,
+            };
+        });
+    };
+
+    // 5. Handle form submission (PATCH method)
+    const updateGift = async (event) => {
+        event.preventDefault();
+
+        // Data to send to the server (includes all fields in 'gift' state)
+        const options = {
+          method: 'PATCH',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(gift),
+        };
+        
+        try {
+            // Send PATCH request to the Express endpoint: /gifts/10
+            const response = await fetch(`/gifts/${id}`, options);
+            
+            if (response.ok) {
+                console.log("Gift successfully updated!");
+                // Redirect to the home page or the detail page after success
+                navigate('/'); 
+            } else {
+                console.error("Failed to update gift. Server response status:", response.status);
+            }
+        } catch (error) {
+            console.error("Network error during gift update:", error);
+        }
+    };
+
+    return (
+        <div className='EditGift'>
+            {styleBlock}
+            <h2>Edit Gift: {gift.name}</h2>
+            
+            <form onSubmit={updateGift}>
+                <label htmlFor='name'>Name</label>
+                <input type='text' id='name' name='name' value={gift.name || ''} onChange={handleChange} required /><br />
+                
+                <label htmlFor='description'>Description</label>
+                {/* Fallback to empty string for initial render if description is null */}
+                <textarea rows='5' cols='50' id='description' name='description' value={gift.description || ''} onChange={handleChange} required ></textarea>
+                
+                <label htmlFor='image'>Image URL</label>
+                <input type='text' id='image' name='image' value={gift.image || ''} onChange={handleChange} /><br />
+                
+                <label htmlFor='pricepoint'>Price Point</label>
+                <input type='text' id='pricepoint' name='pricepoint' value={gift.pricepoint || ''} onChange={handleChange} required /><br />
+                
+                <label htmlFor='audience'>Audience</label>
+                <input type='text' id='audience' name='audience' value={gift.audience || ''} onChange={handleChange} /><br />
+                
+                <label htmlFor='submittedby'>Submitted By</label>
+                <input type='text' id='submittedby' name='submittedby' value={gift.submittedby || ''} onChange={handleChange} required /><br />
+
+                {/* Optional: Read-only display of submission date */}
+                {gift.submittedon && (
+                    <p style={{marginTop: '10px', fontSize: '0.9rem', color: '#777'}}>Submitted On: {new Date(gift.submittedon).toLocaleDateString()}</p>
+                )}
+                
+                <input type='submit' value='Update Gift' />
+            </form>
+        </div>
+    );
+};
+
+export default EditGift;
+

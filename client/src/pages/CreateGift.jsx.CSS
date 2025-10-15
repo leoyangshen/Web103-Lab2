@@ -1,0 +1,156 @@
+import React, { useState } from 'react'
+// import './CreateGift.css' <-- REMOVED: Styles are now embedded below
+
+const CreateGift = () => {
+
+    // --- Date logic to set 'submittedon' automatically ---
+    const date = new Date()
+    // Ensure month and day are two digits by padding with leading zero if needed
+    let day = String(date.getDate()).padStart(2, '0');
+    let month = String(date.getMonth() + 1).padStart(2, '0'); 
+    let year = date.getFullYear()
+    let currentDate = year + '-' + month + '-' + day
+
+    const [gift, setGift] = useState({
+        id: 0, 
+        name: '',
+        pricepoint: '',
+        audience: '',
+        image: '',
+        description: '',
+        submittedby: '',
+        submittedon: currentDate
+    })
+    
+    const handleChange = (event) => {
+        const { name, value } = event.target
+
+        setGift( (prev) => {
+            return {
+                ...prev,
+                [name]:value,
+            }
+        })
+    }
+    
+    // --- Async function to handle form submission and API call ---
+    const createGift = async (event) => {
+        event.preventDefault() // Prevents the default form submission (page reload)
+
+        // 1. Prepare the options object using the current 'gift' state
+        const options = {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(gift), // Sends the data to the server
+        };
+        
+        // 2. Await the fetch call
+        try {
+            const response = await fetch('/gifts', options);
+            
+            // Check for success (e.g., status 201 Created)
+            if (response.ok) {
+                // 3. Redirect to the home page after success
+                window.location = '/'; 
+            } else {
+                console.error("Failed to create gift. Server response status:", response.status);
+            }
+        } catch (error) {
+            console.error("Network error during gift creation:", error);
+        }
+    }
+
+    // --- JSX using standard classes with embedded CSS ---
+    return (
+        <div className='CreateGift'>
+            <style jsx="true">{`
+                .CreateGift {
+                    padding: 20px; 
+                    border: 1px solid #ccc; 
+                    border-radius: 10px; 
+                    max-width: 800px; 
+                    margin: 40px auto; 
+                    box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
+                    font-family: 'Inter', sans-serif;
+                }
+                .CreateGift form {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 15px;
+                }
+                .CreateGift h2 {
+                    margin-bottom: 20px;
+                    color: #333;
+                }
+                input, textarea {
+                    box-sizing: border-box;
+                    margin-top: 5px; 
+                    width: 100%;
+                    border-radius: 8px;
+                    border: 1px solid #ccc; 
+                    font-size: 14px;
+                    padding: 10px;
+                    font-family: inherit;
+                }
+                input {
+                    height: 45px;
+                }
+                label {
+                    font-size: 16px;
+                    font-weight: 600;
+                    color: #333;
+                    display: block; 
+                }
+                textarea {
+                    resize: vertical;
+                    min-height: 120px;
+                }
+                input[type=submit] {
+                    width: 100%;
+                    height: 50px;
+                    cursor: pointer;
+                    border-radius: 8px;
+                    border: 1px solid transparent;
+                    font-size: 20px;
+                    font-weight: 600;
+                    background-color: #1a1a1a;
+                    color:white;
+                    transition: background-color 0.25s;
+                    margin-top: 25px;
+                    margin-bottom: 10px;
+                }
+                input[type=submit]:hover {
+                    background-color: #333;
+                }
+            `}</style>
+            
+            <center><h2>Add a Gift</h2></center>
+            <form>
+                <label htmlFor='name'>Name</label>
+                <input type='text' id='name' name='name' value={gift.name} onChange={handleChange} required />
+
+                <label htmlFor='description'>Description</label>
+                <textarea id='description' name='description' value={gift.description} onChange={handleChange} required></textarea>
+
+                <label htmlFor='image'>Image URL</label>
+                <input type='text' id='image' name='image' value={gift.image} onChange={handleChange} />
+
+                <label htmlFor='pricepoint'>Price Point</label>
+                <input type='text' id='pricepoint' name='pricepoint' value={gift.pricepoint} onChange={handleChange} required />
+
+                <label htmlFor='audience'>Audience</label>
+                <input type='text' id='audience' name='audience' value={gift.audience} onChange={handleChange} />
+
+                <label htmlFor='submittedby'>Submitted By</label>
+                <input type='text' id='submittedby' name='submittedby' value={gift.submittedby} onChange={handleChange} required />
+
+                <input type='submit' value='Submit Gift' onClick={createGift} />
+            </form>
+        </div>
+    )
+}
+
+export default CreateGift
+
