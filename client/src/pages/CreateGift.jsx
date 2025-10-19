@@ -1,13 +1,12 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-// import './CreateGift.css' // Removed to fix the compilation error
+import './CreateGift.css'; // Re-enabling the local CSS import
 
 const CreateGift = () => {
     const navigate = useNavigate();
 
     // --- Date logic to set 'submittedon' automatically ---
     const date = new Date()
-    // Ensure month and day are two digits by padding with leading zero if needed
     let day = String(date.getDate()).padStart(2, '0');
     let month = String(date.getMonth() + 1).padStart(2, '0'); 
     let year = date.getFullYear()
@@ -45,128 +44,125 @@ const CreateGift = () => {
           headers: {
             'Content-Type': 'application/json'
           },
-          body: JSON.stringify(gift), // Sends the data to the server
+          body: JSON.stringify(gift),
         };
-        
-        // 2. Await the fetch call
+
+        // 2. Perform the fetch request
         try {
+            // Use relative path for Vite proxy
             const response = await fetch('/gifts', options);
             
-            // Check for success (e.g., status 201 Created)
             if (response.ok) {
-                // Redirect to the home page after success
+                // Navigate to the Home Page (/) after successful creation
                 navigate('/');
             } else {
-                console.error("Failed to create gift. Server response status:", response.status);
-                // Using alert() as a fallback for user feedback
-                alert("Failed to create gift. Check console for details."); 
+                // Read the detailed error message from the response body
+                const errorText = await response.text();
+                console.error("Failed to create gift:", response.status, errorText);
+                alert("Creation failed. Please check server logs.");
             }
         } catch (error) {
-            console.error("Network error during gift creation:", error);
-            alert("A network error occurred while creating the gift.");
+            console.error("Network or processing error:", error);
+            alert("A network error occurred. Could not connect to the server.");
         }
     }
 
-    // --- JSX using Tailwind CSS for clean, mobile-responsive styling ---
     return (
-        <div className='max-w-xl mx-auto p-6 mt-10 shadow-xl rounded-xl bg-white border border-gray-200'>
-            <h2 className='text-3xl font-extrabold text-gray-800 mb-6 text-center'>Add a Gift</h2>
-            
-            <form onSubmit={createGift} className='space-y-4'>
-                
-                {/* Name */}
-                <div>
-                    <label htmlFor='name' className='block text-sm font-medium text-gray-700 mb-1'>Name</label>
-                    <input 
-                        type='text' 
-                        id='name' 
-                        name='name' 
-                        value={gift.name} 
-                        onChange={handleChange} 
-                        required
-                        className='w-full p-3 border border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500'
-                    />
-                </div>
+        <div className='create-gift-page-container'>
+            <div className='form-container'>
+                <h2 className='form-title'>Add a New Gift</h2>
+                <form onSubmit={createGift}>
+                    {/* Name */}
+                    <div className='form-group'>
+                        <label htmlFor='name' className='label-text'>Gift Name</label>
+                        <input 
+                            type='text' 
+                            id='name' 
+                            name='name' 
+                            value={gift.name} 
+                            onChange={handleChange} 
+                            required 
+                            className='input-field' 
+                        />
+                    </div>
 
-                {/* Description */}
-                <div>
-                    <label htmlFor='description' className='block text-sm font-medium text-gray-700 mb-1'>Description</label>
-                    <textarea 
-                        id='description' 
-                        name='description' 
-                        rows='4'
-                        value={gift.description} 
-                        onChange={handleChange} 
-                        required
-                        className='w-full p-3 border border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500 resize-y'
-                    ></textarea>
-                </div>
+                    {/* Pricepoint */}
+                    <div className='form-group'>
+                        <label htmlFor='pricepoint' className='label-text'>Pricepoint</label>
+                        <input 
+                            type='text' 
+                            id='pricepoint' 
+                            name='pricepoint' 
+                            value={gift.pricepoint} 
+                            onChange={handleChange} 
+                            className='input-field' 
+                        />
+                    </div>
 
-                {/* Image URL */}
-                <div>
-                    <label htmlFor='image' className='block text-sm font-medium text-gray-700 mb-1'>Image URL</label>
-                    <input 
-                        type='url' 
-                        id='image' 
-                        name='image' 
-                        value={gift.image} 
-                        onChange={handleChange} 
-                        className='w-full p-3 border border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500'
-                    />
-                </div>
+                    {/* Image URL */}
+                    <div className='form-group'>
+                        <label htmlFor='image' className='label-text'>Image URL (Optional)</label>
+                        <input 
+                            type='text' 
+                            id='image' 
+                            name='image' 
+                            value={gift.image} 
+                            onChange={handleChange} 
+                            className='input-field' 
+                        />
+                    </div>
 
-                {/* Price Point */}
-                <div>
-                    <label htmlFor='pricepoint' className='block text-sm font-medium text-gray-700 mb-1'>Price Point</label>
-                    <input 
-                        type='text' 
-                        id='pricepoint' 
-                        name='pricepoint' 
-                        value={gift.pricepoint} 
-                        onChange={handleChange} 
-                        required
-                        className='w-full p-3 border border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500'
-                    />
-                </div>
+                    {/* Description */}
+                    <div className='form-group'>
+                        <label htmlFor='description' className='label-text'>Description</label>
+                        <textarea 
+                            id='description' 
+                            name='description' 
+                            value={gift.description} 
+                            onChange={handleChange} 
+                            rows='4'
+                            className='input-field textarea-field'
+                        ></textarea>
+                    </div>
 
-                {/* Audience */}
-                <div>
-                    <label htmlFor='audience' className='block text-sm font-medium text-gray-700 mb-1'>Audience</label>
-                    <input 
-                        type='text' 
-                        id='audience' 
-                        name='audience' 
-                        value={gift.audience} 
-                        onChange={handleChange}
-                        className='w-full p-3 border border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500' 
-                    />
-                </div>
+                    {/* Audience */}
+                    <div className='form-group'>
+                        <label htmlFor='audience' className='label-text'>Audience</label>
+                        <input 
+                            type='text' 
+                            id='audience' 
+                            name='audience' 
+                            value={gift.audience} 
+                            onChange={handleChange}
+                            className='input-field' 
+                        />
+                    </div>
 
-                {/* Submitted By */}
-                <div>
-                    <label htmlFor='submittedby' className='block text-sm font-medium text-gray-700 mb-1'>Submitted By</label>
-                    <input 
-                        type='text' 
-                        id='submittedby' 
-                        name='submittedby' 
-                        value={gift.submittedby} 
-                        onChange={handleChange} 
-                        required
-                        className='w-full p-3 border border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500'
-                    />
-                </div>
+                    {/* Submitted By */}
+                    <div className='form-group'>
+                        <label htmlFor='submittedby' className='label-text'>Submitted By</label>
+                        <input 
+                            type='text' 
+                            id='submittedby' 
+                            name='submittedby' 
+                            value={gift.submittedby} 
+                            onChange={handleChange} 
+                            required
+                            className='input-field'
+                        />
+                    </div>
 
-                {/* Submit Button */}
-                <button 
-                    type='submit' 
-                    className='w-full py-3 mt-6 bg-gray-900 text-white font-semibold rounded-lg shadow-md hover:bg-gray-700 transition duration-300'
-                >
-                    Submit Gift
-                </button>
-            </form>
+                    {/* Submit Button */}
+                    <button 
+                        type='submit' 
+                        className='submit-button'
+                    >
+                        Submit Gift
+                    </button>
+                </form>
+            </div>
         </div>
     )
 }
 
 export default CreateGift
-

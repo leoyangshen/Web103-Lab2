@@ -1,64 +1,84 @@
-.CreateGift {
-    margin-left: 200px;
-    margin-right:200px;
-    padding: 20px; /* Added padding for better inner spacing */
-    border: 1px solid #ccc; /* Added light border */
-    border-radius: 10px; /* Added rounded corners */
-    max-width: 800px; /* Limit width */
-    margin: 40px auto; /* Center the form block */
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Added subtle shadow */
-}
-
-/* Form structure */
-.CreateGift form {
+/* Container for the entire page to center the form */
+.create-gift-page-container {
     display: flex;
-    flex-direction: column;
-    gap: 15px; /* Spacing between form groups */
+    justify-content: center;
+    align-items: flex-start; /* Align to the top of the viewport */
+    min-height: 100vh;
+    padding: 3rem 1rem; /* p-12 and some padding on sides */
+    background-color: #f3f4f6; /* bg-gray-100 */
 }
 
-input, textarea {
-    box-sizing: border-box; /* Include padding and border in the element's total width and height */
-    margin-top: 5px; /* Reduced margin-top for better spacing */
+/* Main Form Container */
+.form-container {
+    max-width: 32rem; /* max-w-xl */
     width: 100%;
-    border-radius: 8px;
-    border: 1px solid #ccc; /* Lighter border color for input fields */
-    font-size: 14px;
-    padding: 10px; /* Adjusted padding to look better */
-    font-family: 'Inter', sans-serif; /* Use Inter font for consistency */
+    margin-left: auto; /* mx-auto */
+    margin-right: auto; /* mx-auto */
+    padding: 2rem; /* p-8 */
+    background-color: #ffffff; /* bg-white */
+    border-radius: 0.5rem; /* rounded-lg */
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-xl */
 }
 
-input {
-    height: 45px;
+/* Form Title */
+.form-title {
+    font-size: 1.875rem; /* text-3xl */
+    font-weight: 700; /* font-bold */
+    text-align: center; /* text-center */
+    color: #1f2937; /* text-gray-900 */
+    margin-bottom: 2rem; /* mb-8 */
 }
 
-label {
-    font-size: 16px;
-    font-weight: 600;
-    color: #333;
-    display: block; /* Ensure label is a block element */
+/* Form Group (Label and Input) */
+.form-group {
+    margin-bottom: 1rem; /* mb-4 */
 }
 
-textarea {
-    resize: vertical; /* Allow vertical resize */
-    min-height: 120px;
+/* Label Text */
+.label-text {
+    display: block;
+    font-size: 0.875rem; /* text-sm */
+    font-weight: 500; /* font-medium */
+    color: #374151; /* text-gray-700 */
+    margin-bottom: 0.25rem; /* mb-1 */
 }
 
-input[type=submit] {
+/* General Input Field Styles */
+.input-field {
     width: 100%;
-    height: 50px;
+    padding: 0.75rem; /* p-3 */
+    border: 1px solid #d1d5db; /* border border-gray-300 */
+    border-radius: 0.5rem; /* rounded-lg */
+    /* Focus styles: focus:ring-indigo-500 focus:border-indigo-500 */
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.input-field:focus {
+    border-color: #6366f1; /* Indigo-500 equivalent */
+    outline: 0;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.5); /* Ring effect */
+}
+
+/* Textarea specific style */
+.textarea-field {
+    resize: vertical;
+}
+
+/* Submit Button */
+.submit-button {
+    width: 100%;
+    padding: 0.75rem; /* py-3 */
+    margin-top: 1.5rem; /* mt-6 */
+    background-color: #1f2937; /* bg-gray-900 */
+    color: #ffffff; /* text-white */
+    font-weight: 600; /* font-semibold */
+    border-radius: 0.5rem; /* rounded-lg */
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.06); /* shadow-md */
+    transition: background-color 300ms ease; /* transition duration-300 */
     cursor: pointer;
-    border-radius: 8px;
-    border: 1px solid transparent;
-    font-size: 20px;
-    font-weight: 600;
-    background-color: #1a1a1a;
-    color:white;
-    transition: background-color 0.25s;
-    margin-top: 25px;
-    margin-bottom: 10px;
+    border: none;
 }
 
-input[type=submit]:hover {
-    background-color: #333;
+.submit-button:hover {
+    background-color: #374151; /* hover:bg-gray-700 */
 }
-

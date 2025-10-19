@@ -1,7 +1,25 @@
-main {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
+/* Main content area style (was the 'main' tag selector) */
+.GiftsMain {
+    background-color: #f7f7f7;
+    min-height: 100vh;
+}
 
+/* Grid container for the cards (was .GiftsGrid) */
+.GiftsGrid {
+    display: grid;
+    /* Uses auto-fit and minmax to create a responsive grid that adjusts column count */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    padding: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    .GiftsGrid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+        padding: 15px;
+    }
 }

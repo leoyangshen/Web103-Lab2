@@ -1,58 +1,71 @@
-.top-container img {
-  float: right;
-  max-height: 40px;
-  margin-top: 10px;
-  margin-right: 8px; 
-}
-
 .card {
-    width: 300px;
-    height: 400px;
-    background: transparent;
-    border-style: solid;
-    border-width: 3px;
-    border-color: rgb(3, 7, 89);
-    border-radius: 0.3rem;
-    box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, 0.057);
-    margin-top: 0px;
-    margin-left: 20px;
-    margin-right: 40px;
-    margin-bottom: 60px;
-
+    border: 1px solid #e0e0e0; [cite_start]/* [cite: 4] */
+    border-radius: 12px; [cite_start]/* [cite: 4] */
+    padding: 16px; [cite_start]/* [cite: 4] */
+    margin: 10px; [cite_start]/* [cite: 4] */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); [cite_start]/* [cite: 4] */
+    transition: transform 0.2s, box-shadow 0.2s; [cite_start]/* [cite: 4] */
+    display: flex; [cite_start]/* [cite: 4] */
+    flex-direction: column; [cite_start]/* [cite: 4] */
+    justify-content: space-between; [cite_start]/* [cite: 5] */
+    min-height: 250px; [cite_start]/* [cite: 5] */
+    background-color: #fff; [cite_start]/* [cite: 5] */
 }
 
-.card img {
-    height: 100%;
+.card:hover {
+    transform: translateY(-3px); [cite_start]/* [cite: 6] */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); [cite_start]/* [cite: 6] */
 }
 
-.top-container {
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
-    height: 250px;
-}
-.top-container img {
-  float: right;
-  max-height: 40px;
-  margin-top: 10px;
-  margin-right: 8px; 
+.card-header {
+    display: flex; [cite_start]/* [cite: 7] */
+    justify-content: space-between; [cite_start]/* [cite: 7] */
+    align-items: flex-start; [cite_start]/* [cite: 7] */
+    margin-bottom: 10px; [cite_start]/* [cite: 7] */
 }
 
-.bottom-container {
-    margin-top:30px;
-    margin-left: 10px;
+.card-title {
+    font-size: 1.5rem; [cite_start]/* [cite: 8] */
+    font-weight: 700; [cite_start]/* [cite: 8] */
+    color: #333; [cite_start]/* [cite: 8] */
+    margin: 0; [cite_start]/* [cite: 8] */
+    overflow: hidden; [cite_start]/* [cite: 9] */
+    text-overflow: ellipsis; [cite_start]/* [cite: 9] */
+    white-space: nowrap; [cite_start]/* [cite: 9] */
 }
 
-.bottom-container h3 {
-    margin-top: 10px;
-    margin-bottom: 6px;
+.card-info {
+    font-size: 1rem; [cite_start]/* [cite: 10] */
+    color: #666; [cite_start]/* [cite: 10] */
 }
 
-.bottom-container p {
-    margin: 2px;
+.card-footer {
+    margin-top: 15px; [cite_start]/* [cite: 11] */
+    display: flex; [cite_start]/* [cite: 11] */
+    justify-content: flex-end; [cite_start]/* [cite: 11] */
+    align-items: center; [cite_start]/* [cite: 11] */
+    gap: 10px; [cite_start]/* [cite: 11] */
 }
 
-.bottom-container a {
-    color: rgb(228, 16, 133);
-    text-decoration: none;
+.edit-button {
+    background: none; [cite_start]/* [cite: 12] */
+    border: 1px solid #ccc; [cite_start]/* [cite: 12] */
+    color: #555; [cite_start]/* [cite: 12] */
+    padding: 6px 12px; [cite_start]/* [cite: 12] */
+    border-radius: 8px; [cite_start]/* [cite: 12] */
+    cursor: pointer; [cite_start]/* [cite: 12] */
+    font-size: 0.9rem; [cite_start]/* [cite: 13] */
+    font-weight: 500; [cite_start]/* [cite: 13] */
+    transition: background-color 0.2s; [cite_start]/* [cite: 13] */
+}
+
+.edit-button:hover {
+    background-color: #f0f0f0; [cite_start]/* [cite: 14] */
+    border-color: #999; [cite_start]/* [cite: 14] */
+}
+
+.card-link {
+    text-decoration: none; [cite_start]/* [cite: 15] */
+    color: inherit; [cite_start]/* [cite: 15] */
+    display: block; [cite_start]/* [cite: 15] */
 }

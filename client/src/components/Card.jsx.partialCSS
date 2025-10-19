@@ -1,0 +1,88 @@
+import React from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+
+const Card = ({ gift }) => {
+    const navigate = useNavigate();
+    
+    // Function to handle edit click and prevent the parent link from firing
+    const handleEditClick = (e) => {
+        // Prevents the click from propagating to the parent <Link>
+        e.preventDefault(); 
+        navigate(`/edit/${gift.id}`);
+    };
+
+    // Define critical styles inline as a fail-safe against the broken Tailwind environment
+    const cardStyle = {
+        border: '1px solid #e0e0e0',
+        borderRadius: '12px',
+        padding: '16px',
+        margin: '10px',
+        boxShadow: '0 4px 8px rgba(0, 0, 0, 0.05)',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'space-between',
+        minHeight: '250px',
+        backgroundColor: 'white',
+        // Ensuring hover effect works via direct CSS class in JSX
+        cursor: 'pointer',
+    };
+
+    const imageStyle = {
+        width: '100%',
+        height: '144px', // Fixed height
+        objectFit: 'cover', // Essential for image quality
+        borderRadius: '8px',
+        marginBottom: '12px',
+    };
+
+    // Tailwind classes are kept for responsiveness and better semantics where possible
+    const hoverClasses = "transition-all duration-200 transform hover:-translate-y-1 hover:shadow-lg";
+
+    return (
+        // Link wrapper (block display, no underline)
+        <Link to={`/gift/${gift.id}`} className="block no-underline text-gray-800">
+            {/* Card Container: Using combined inline style and Tailwind for hover */}
+            <div 
+                style={cardStyle} 
+                className={hoverClasses}
+            >
+                <div className="flex-grow">
+                    <div className="flex justify-between items-start mb-3">
+                        {/* Title: large, bold, truncated, and capped width */}
+                        <h3 className="text-xl font-bold text-gray-800 truncate max-w-[80%]" title={gift.name}>
+                            {gift.name}
+                        </h3>
+                        
+                        {/* Edit Button: styled with clear boundaries */}
+                        <button 
+                            className="bg-white border border-gray-300 text-gray-600 px-3 py-1 text-sm font-medium rounded-lg hover:bg-gray-100 transition duration-150 ml-2"
+                            onClick={handleEditClick}
+                            aria-label={`Edit ${gift.name}`}
+                        >
+                            Edit
+                        </button>
+                    </div>
+
+                    {/* Image Handling: Using explicit inline styles for size control */}
+                    {gift.image && (
+                         <img 
+                            src={gift.image} 
+                            alt={gift.name} 
+                            style={imageStyle}
+                            // Fallback if image fails to load
+                            onError={(e) => { e.target.onerror = null; e.target.src="https://placehold.co/400x144/e0e0e0/333333?text=Gift+Image"; }}
+                        />
+                    )}
+                    
+                    {/* Details */}
+                    <p className="text-sm text-gray-600 mb-1">**Price:** <span className="font-semibold text-gray-700">{gift.pricepoint}</span></p>
+                    <p className="text-sm text-gray-600 mb-1">**Audience:** <span className="font-semibold text-gray-700">{gift.audience}</span></p>
+                    <p className="text-sm text-gray-600">**Submitted By:** <span className="font-semibold text-gray-700">{gift.submittedby}</span></p>
+                </div>
+            </div>
+        </Link>
+    );
+};
+
+export default Card;
+
