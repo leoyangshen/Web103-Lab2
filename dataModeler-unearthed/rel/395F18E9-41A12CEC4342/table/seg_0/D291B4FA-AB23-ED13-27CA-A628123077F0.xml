@@ -1,0 +1,128 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="D291B4FA-AB23-ED13-27CA-A628123077F0" name="gifts">
+<sourceDDLFile>schema.sql</sourceDDLFile>
+<createdBy>leo</createdBy>
+<createdTime>2026-01-30 14:32:36 UTC</createdTime>
+<commentInRDBMS><![CDATA[Table containing gift ideas and metadata for the unearthed app]]></commentInRDBMS>
+<ownerDesignName>dataModeler-unearthed</ownerDesignName>
+<importedID>4A5F2EA3-A5E9-7A33-6EA6-7900A596CCD7</importedID>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id" id="B664A4E3-C808-D7AF-FAC6-4663F1914EFE">
+<sourceDDLFile>schema.sql</sourceDDLFile>
+<createdBy>leo</createdBy>
+<createdTime>2026-01-30 14:32:36 UTC</createdTime>
+<ownerDesignName>dataModeler-unearthed</ownerDesignName>
+<importedID>3CDF693E-1B74-0DBF-8664-AD16D0D2CD67</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>914537C1-D5ED-78CC-0E57-7E6F6E92901D</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<identityColumn>true</identityColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<autoIncrementOrder>false</autoIncrementOrder>
+</Column>
+<Column name="name" id="3ABDE930-FDBE-86A9-B486-C7AE8B96FE41">
+<sourceDDLFile>schema.sql</sourceDDLFile>
+<createdBy>leo</createdBy>
+<createdTime>2026-01-30 14:32:36 UTC</createdTime>
+<ownerDesignName>dataModeler-unearthed</ownerDesignName>
+<importedID>21F6CD31-5436-DDFE-840C-CD8F085F3C6D</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>BC3A6929-36C5-87FC-D2FA-5CA294B4200E</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="pricePoint" id="0625A6BC-0964-99AE-E7BA-C00A4F904F86">
+<sourceDDLFile>schema.sql</sourceDDLFile>
+<createdBy>leo</createdBy>
+<createdTime>2026-01-30 14:32:36 UTC</createdTime>
+<ownerDesignName>dataModeler-unearthed</ownerDesignName>
+<importedID>6D1D6D59-9458-4B23-29B3-0B7155F7AE31</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>CE6C5D45-5B21-4C14-9AD2-D45FB26D3287</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="audience" id="C22A4B4A-F4F1-9BD4-F736-A2F9960C7131">
+<sourceDDLFile>schema.sql</sourceDDLFile>
+<createdBy>leo</createdBy>
+<createdTime>2026-01-30 14:32:36 UTC</createdTime>
+<ownerDesignName>dataModeler-unearthed</ownerDesignName>
+<importedID>6B916019-AFB4-AA5A-D399-913645194EA1</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>BC3A6929-36C5-87FC-D2FA-5CA294B4200E</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="image" id="87DC1844-99D9-308F-A140-734515365F53">
+<sourceDDLFile>schema.sql</sourceDDLFile>
+<createdBy>leo</createdBy>
+<createdTime>2026-01-30 14:32:36 UTC</createdTime>
+<ownerDesignName>dataModeler-unearthed</ownerDesignName>
+<importedID>ACC17695-F684-D8D7-C941-2C65BB08C359</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>BC3A6929-36C5-87FC-D2FA-5CA294B4200E</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="description" id="E58834BA-C557-125B-0F22-FC7A2DF2EEEB">
+<sourceDDLFile>schema.sql</sourceDDLFile>
+<createdBy>leo</createdBy>
+<createdTime>2026-01-30 14:32:36 UTC</createdTime>
+<ownerDesignName>dataModeler-unearthed</ownerDesignName>
+<importedID>C5097C67-9F6A-EF7F-083B-DE81E74907D3</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT028</logicalDatatype>
+<domain>AEECF89A-C278-F178-CCA2-356E4DF5ACB6</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="submittedBy" id="F7DE72C6-832F-D73E-1E9C-E1FC508608FF">
+<sourceDDLFile>schema.sql</sourceDDLFile>
+<createdBy>leo</createdBy>
+<createdTime>2026-01-30 14:32:36 UTC</createdTime>
+<ownerDesignName>dataModeler-unearthed</ownerDesignName>
+<importedID>B802D729-CAA5-289E-A4F1-CBFD3695A5AD</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>BC3A6929-36C5-87FC-D2FA-5CA294B4200E</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="submittedOn" id="1EC92E75-9D98-A5C3-C195-0499290D0114">
+<sourceDDLFile>schema.sql</sourceDDLFile>
+<createdBy>leo</createdBy>
+<createdTime>2026-01-30 14:32:36 UTC</createdTime>
+<ownerDesignName>dataModeler-unearthed</ownerDesignName>
+<importedID>E9DA7E93-D31B-F535-394D-D5164A4834CE</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT015</logicalDatatype>
+<domain>58D2FA30-3083-3939-6900-CDE43AABC37A</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="85805D2B-CB97-7356-6322-C1146D7799CD" name="gifts_PK">
+<sourceDDLFile>schema.sql</sourceDDLFile>
+<createdBy>leo</createdBy>
+<createdTime>2026-01-30 14:32:36 UTC</createdTime>
+<ownerDesignName>dataModeler-unearthed</ownerDesignName>
+<importedID>013BDADF-A01F-1D77-8F57-9384B0A8356A</importedID>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="B664A4E3-C808-D7AF-FAC6-4663F1914EFE"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

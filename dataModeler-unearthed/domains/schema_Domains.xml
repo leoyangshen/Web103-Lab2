@@ -1,0 +1,52 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<DomainFile class="oracle.dbtools.crest.model.design.DomainFileWrapper" fileName="schema_Domains">
+<domains>
+<Domain class="oracle.dbtools.crest.model.design.Domain" name="Timestamp_6_0_0" id="58D2FA30-3083-3939-6900-CDE43AABC37A">
+<createdBy>leo</createdBy>
+<createdTime>2026-01-30 14:32:36 UTC</createdTime>
+<ownerDesignName>dataModeler-unearthed</ownerDesignName>
+<avTSortOrder>0</avTSortOrder>
+<dataTypePrecision>6</dataTypePrecision>
+<fileName>schema_Domains</fileName>
+<logicalDatatype>LOGDT015</logicalDatatype>
+</Domain>
+<Domain class="oracle.dbtools.crest.model.design.Domain" name="NUMERIC_0_0_0" id="914537C1-D5ED-78CC-0E57-7E6F6E92901D">
+<createdBy>leo</createdBy>
+<createdTime>2026-01-30 14:32:36 UTC</createdTime>
+<ownerDesignName>dataModeler-unearthed</ownerDesignName>
+<avTSortOrder>0</avTSortOrder>
+<fileName>schema_Domains</fileName>
+<logicalDatatype>LOGDT019</logicalDatatype>
+</Domain>
+<Domain class="oracle.dbtools.crest.model.design.Domain" name="CLOB_0_0_0" id="AEECF89A-C278-F178-CCA2-356E4DF5ACB6">
+<createdBy>leo</createdBy>
+<createdTime>2026-01-30 14:32:36 UTC</createdTime>
+<ownerDesignName>dataModeler-unearthed</ownerDesignName>
+<avTSortOrder>0</avTSortOrder>
+<fileName>schema_Domains</fileName>
+<logicalDatatype>LOGDT028</logicalDatatype>
+</Domain>
+<Domain class="oracle.dbtools.crest.model.design.Domain" name="VARCHAR_0_0_255" id="BC3A6929-36C5-87FC-D2FA-5CA294B4200E">
+<createdBy>leo</createdBy>
+<createdTime>2026-01-30 14:32:36 UTC</createdTime>
+<ownerDesignName>dataModeler-unearthed</ownerDesignName>
+<avTSortOrder>0</avTSortOrder>
+<dataTypePrecision>0</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<dataTypeSize>255</dataTypeSize>
+<fileName>schema_Domains</fileName>
+<logicalDatatype>LOGDT024</logicalDatatype>
+</Domain>
+<Domain class="oracle.dbtools.crest.model.design.Domain" name="VARCHAR_0_0_10" id="CE6C5D45-5B21-4C14-9AD2-D45FB26D3287">
+<createdBy>leo</createdBy>
+<createdTime>2026-01-30 14:32:36 UTC</createdTime>
+<ownerDesignName>dataModeler-unearthed</ownerDesignName>
+<avTSortOrder>0</avTSortOrder>
+<dataTypePrecision>0</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<dataTypeSize>10</dataTypeSize>
+<fileName>schema_Domains</fileName>
+<logicalDatatype>LOGDT024</logicalDatatype>
+</Domain>
+</domains>
+</DomainFile>

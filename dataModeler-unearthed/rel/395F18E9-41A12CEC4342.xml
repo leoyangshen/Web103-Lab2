@@ -1,0 +1,15 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<relationalModel class="oracle.dbtools.crest.model.design.relational.RelationalDesign" name="Relational_1" id="395F18E9-48C0-E55A-EFDC-41A12CEC4342" mainViewID="C96D5864-9F30-F1DF-5E33-9B49DFBF9696">
+<createdBy>leo</createdBy>
+<createdTime>2026-01-30 14:28:52 UTC</createdTime>
+<ownerDesignName>dataModeler-unearthed</ownerDesignName>
+<shouldBeOpen>false</shouldBeOpen>
+<selectedRDBMSSite>01F6E6D1-21D0-CFBD-ABDD-3988D1813575</selectedRDBMSSite>
+<importDDLFileStamps>
+<importDDLFileStamp class="oracle.dbtools.crest.imports.DDLFileStamp">
+<fileName>schema.sql</fileName>
+<pathName>/home/leo/vite/Web103/unearthed</pathName>
+<dbType>17</dbType>
+</importDDLFileStamp>
+</importDDLFileStamps>
+</relationalModel>

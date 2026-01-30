@@ -1,0 +1,140 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="160323BD-48D8-6AA7-C394-8C82C2AFB829" name="gifts">
+<createdBy>leo</createdBy>
+<createdTime>2026-01-30 14:35:24 UTC</createdTime>
+<commentInRDBMS><![CDATA[Table containing gift ideas and metadata for the unearthed app]]></commentInRDBMS>
+<generatorID>D291B4FA-AB23-ED13-27CA-A628123077F0</generatorID>
+<ownerDesignName>dataModeler-unearthed</ownerDesignName>
+<engineerTo>
+<item key="395F18E9-48C0-E55A-EFDC-41A12CEC4342" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="id" id="A7C05369-7D9B-43DB-C11F-8EFE40EB74E7">
+<createdBy>leo</createdBy>
+<createdTime>2026-01-30 14:35:24 UTC</createdTime>
+<generatorID>B664A4E3-C808-D7AF-FAC6-4663F1914EFE</generatorID>
+<ownerDesignName>dataModeler-unearthed</ownerDesignName>
+<engineerTo>
+<item key="395F18E9-48C0-E55A-EFDC-41A12CEC4342" value="true"/>
+</engineerTo>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>914537C1-D5ED-78CC-0E57-7E6F6E92901D</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="name" id="F53448AE-F990-D14D-FC3F-66A7AC2B1FD6">
+<createdBy>leo</createdBy>
+<createdTime>2026-01-30 14:35:24 UTC</createdTime>
+<generatorID>3ABDE930-FDBE-86A9-B486-C7AE8B96FE41</generatorID>
+<ownerDesignName>dataModeler-unearthed</ownerDesignName>
+<engineerTo>
+<item key="395F18E9-48C0-E55A-EFDC-41A12CEC4342" value="true"/>
+</engineerTo>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>BC3A6929-36C5-87FC-D2FA-5CA294B4200E</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="pricePoint" id="2B314DE4-B2E8-7A51-341F-EF4FBE30D415">
+<createdBy>leo</createdBy>
+<createdTime>2026-01-30 14:35:24 UTC</createdTime>
+<generatorID>0625A6BC-0964-99AE-E7BA-C00A4F904F86</generatorID>
+<ownerDesignName>dataModeler-unearthed</ownerDesignName>
+<engineerTo>
+<item key="395F18E9-48C0-E55A-EFDC-41A12CEC4342" value="true"/>
+</engineerTo>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>CE6C5D45-5B21-4C14-9AD2-D45FB26D3287</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="audience" id="79D0F405-9659-3015-F150-0418BA235810">
+<createdBy>leo</createdBy>
+<createdTime>2026-01-30 14:35:24 UTC</createdTime>
+<generatorID>C22A4B4A-F4F1-9BD4-F736-A2F9960C7131</generatorID>
+<ownerDesignName>dataModeler-unearthed</ownerDesignName>
+<engineerTo>
+<item key="395F18E9-48C0-E55A-EFDC-41A12CEC4342" value="true"/>
+</engineerTo>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>BC3A6929-36C5-87FC-D2FA-5CA294B4200E</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="image" id="6E809269-0C1E-5A72-1710-9103AA2BC609">
+<createdBy>leo</createdBy>
+<createdTime>2026-01-30 14:35:24 UTC</createdTime>
+<generatorID>87DC1844-99D9-308F-A140-734515365F53</generatorID>
+<ownerDesignName>dataModeler-unearthed</ownerDesignName>
+<engineerTo>
+<item key="395F18E9-48C0-E55A-EFDC-41A12CEC4342" value="true"/>
+</engineerTo>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>BC3A6929-36C5-87FC-D2FA-5CA294B4200E</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="description" id="8B750026-B616-284B-C028-D2C4E1060AF4">
+<createdBy>leo</createdBy>
+<createdTime>2026-01-30 14:35:24 UTC</createdTime>
+<generatorID>E58834BA-C557-125B-0F22-FC7A2DF2EEEB</generatorID>
+<ownerDesignName>dataModeler-unearthed</ownerDesignName>
+<engineerTo>
+<item key="395F18E9-48C0-E55A-EFDC-41A12CEC4342" value="true"/>
+</engineerTo>
+<use>0</use>
+<logicalDatatype>LOGDT028</logicalDatatype>
+<domain>AEECF89A-C278-F178-CCA2-356E4DF5ACB6</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="submittedBy" id="4D8CBDF3-5A64-5E25-4A59-77F5EA2CE90C">
+<createdBy>leo</createdBy>
+<createdTime>2026-01-30 14:35:24 UTC</createdTime>
+<generatorID>F7DE72C6-832F-D73E-1E9C-E1FC508608FF</generatorID>
+<ownerDesignName>dataModeler-unearthed</ownerDesignName>
+<engineerTo>
+<item key="395F18E9-48C0-E55A-EFDC-41A12CEC4342" value="true"/>
+</engineerTo>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>BC3A6929-36C5-87FC-D2FA-5CA294B4200E</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="submittedOn" id="E4A048B4-DFCA-D47F-8F68-F9D5529C5089">
+<createdBy>leo</createdBy>
+<createdTime>2026-01-30 14:35:24 UTC</createdTime>
+<generatorID>1EC92E75-9D98-A5C3-C195-0499290D0114</generatorID>
+<ownerDesignName>dataModeler-unearthed</ownerDesignName>
+<engineerTo>
+<item key="395F18E9-48C0-E55A-EFDC-41A12CEC4342" value="true"/>
+</engineerTo>
+<use>0</use>
+<logicalDatatype>LOGDT015</logicalDatatype>
+<domain>58D2FA30-3083-3939-6900-CDE43AABC37A</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="3E2110CB-AA64-BF9D-445D-F303A94DA820" name="gifts PK">
+<createdBy>leo</createdBy>
+<createdTime>2026-01-30 14:35:24 UTC</createdTime>
+<generatorID>85805D2B-CB97-7356-6322-C1146D7799CD</generatorID>
+<ownerDesignName>dataModeler-unearthed</ownerDesignName>
+<engineerTo>
+<item key="395F18E9-48C0-E55A-EFDC-41A12CEC4342" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>A7C05369-7D9B-43DB-C11F-8EFE40EB74E7</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

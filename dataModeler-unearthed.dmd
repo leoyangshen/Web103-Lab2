@@ -1,0 +1,13 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<OSDM_Design class="oracle.dbtools.crest.model.design.Design" name="dataModeler-unearthed" id="3054C398-EB66-3558-768F-D008A0AA4F9A" version="3.5">
+<createdBy>leo</createdBy>
+<createdTime>2026-01-30 14:28:43 UTC</createdTime>
+<ownerDesignName>dataModeler-unearthed</ownerDesignName>
+<capitalNames>false</capitalNames>
+<designId>3054C398-EB66-3558-768F-D008A0AA4F9A</designId>
+<usedDesignStorageDescriptors>
+<designDescr class="oracle.dbtools.crest.model.design.Design$DesignStorageDesc" id="37E26CCB-2D8B-68D2-1C2A-35E7D131F51E">
+<designStoragePath>/schema</designStoragePath>
+</designDescr>
+</usedDesignStorageDescriptors>
+</OSDM_Design>

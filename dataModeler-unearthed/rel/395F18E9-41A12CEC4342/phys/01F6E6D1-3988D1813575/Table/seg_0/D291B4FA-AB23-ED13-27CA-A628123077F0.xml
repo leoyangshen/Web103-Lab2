@@ -1,0 +1,62 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev20c class="oracle.dbtools.crest.model.design.storage.oracle.v20c.TableProxyOraclev20c" name="gifts" directorySegmentName="seg_0" id="D291B4FA-AB23-ED13-27CA-A628123077F0">
+<createdBy>leo</createdBy>
+<createdTime>2026-01-30 14:32:36 UTC</createdTime>
+<ownerDesignName>dataModeler-unearthed</ownerDesignName>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="pricePoint" id="0625A6BC-0964-99AE-E7BA-C00A4F904F86">
+<createdBy>leo</createdBy>
+<createdTime>2026-01-30 14:32:36 UTC</createdTime>
+<ownerDesignName>dataModeler-unearthed</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="submittedOn" id="1EC92E75-9D98-A5C3-C195-0499290D0114">
+<createdBy>leo</createdBy>
+<createdTime>2026-01-30 14:32:36 UTC</createdTime>
+<ownerDesignName>dataModeler-unearthed</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="name" id="3ABDE930-FDBE-86A9-B486-C7AE8B96FE41">
+<createdBy>leo</createdBy>
+<createdTime>2026-01-30 14:32:36 UTC</createdTime>
+<ownerDesignName>dataModeler-unearthed</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="image" id="87DC1844-99D9-308F-A140-734515365F53">
+<createdBy>leo</createdBy>
+<createdTime>2026-01-30 14:32:36 UTC</createdTime>
+<ownerDesignName>dataModeler-unearthed</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="id" id="B664A4E3-C808-D7AF-FAC6-4663F1914EFE">
+<createdBy>leo</createdBy>
+<createdTime>2026-01-30 14:32:36 UTC</createdTime>
+<ownerDesignName>dataModeler-unearthed</ownerDesignName>
+<autoIncrementDDL>IDENTITY_CLAUSE</autoIncrementDDL>
+</ColumnProxy>
+<ColumnProxy name="audience" id="C22A4B4A-F4F1-9BD4-F736-A2F9960C7131">
+<createdBy>leo</createdBy>
+<createdTime>2026-01-30 14:32:36 UTC</createdTime>
+<ownerDesignName>dataModeler-unearthed</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="description" id="E58834BA-C557-125B-0F22-FC7A2DF2EEEB">
+<createdBy>leo</createdBy>
+<createdTime>2026-01-30 14:32:36 UTC</createdTime>
+<ownerDesignName>dataModeler-unearthed</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="submittedBy" id="F7DE72C6-832F-D73E-1E9C-E1FC508608FF">
+<createdBy>leo</createdBy>
+<createdTime>2026-01-30 14:32:36 UTC</createdTime>
+<ownerDesignName>dataModeler-unearthed</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="gifts_PK" id="85805D2B-CB97-7356-6322-C1146D7799CD">
+<createdBy>leo</createdBy>
+<createdTime>2026-01-30 14:32:36 UTC</createdTime>
+<ownerDesignName>dataModeler-unearthed</ownerDesignName>
+<indexSort>SORTED</indexSort>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev20c>

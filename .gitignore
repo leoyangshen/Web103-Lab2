@@ -24,3 +24,7 @@ dist-ssr
 *.sw?
 
 .env
+**/*.localz
+**/*.local
+**/*.git
+**/*.DS_Store
